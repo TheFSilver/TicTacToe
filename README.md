@@ -18,7 +18,7 @@ bundle install
 
 ### Lancement du jeu ###
 ```
-ruby TicTacToe.rb
+ruby TicTacToeGame.rb
 ```
 ### Règles du jeu ###
 
