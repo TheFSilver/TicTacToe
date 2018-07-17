@@ -1,7 +1,8 @@
-class Board						# Classe de la grille du jeu
+# Classe de la grille du jeu
+class Board
   def initialize
     @board = []
-    one = BoardCase.new(1)		# Creation des neuf cases du jeu
+    one = BoardCase.new(1) # Creation des neuf cases du jeu
     two = BoardCase.new(2)
     three = BoardCase.new(3)
     four = BoardCase.new(4)
@@ -13,7 +14,8 @@ class Board						# Classe de la grille du jeu
     @board = [one, two, three, four, five, six, seven, eight, nine] # Creation d'un array contenant chacune des cases du jeu
   end
 
-  def grid						# Methode d'affichage de la grille
+  # Methode d'affichage de la grille
+  def grid
     puts "+---+---+---+"
     puts "| #{@board[0].value} | #{@board[1].value} | #{@board[2].value} |"
     puts "+---+---+---+"
@@ -23,14 +25,16 @@ class Board						# Classe de la grille du jeu
     puts "+---+---+---+"
   end
 
-  def play(player)				# Methode affichant la grille et invitant le joueur a choisir une case de jeu
+  # Methode affichant la grille et invitant le joueur a choisir une case de jeu
+  def play(player)
     puts grid
     puts "#{player.name}, Choisis une case en tapant le numéro correspondant."
     @player_choice = gets.chomp.to_i
     switch(player)
   end
 
-  def taken						# Methode verifiant que la case demande par le joueur n'est pas deja occupe
+  # Methode verifiant que la case demande par le joueur n'est pas deja occupe
+  def taken
     check = nil
     unless @board[@player_choice - 1].value.to_s[/\d/].nil?
       check = false
@@ -41,7 +45,8 @@ class Board						# Classe de la grille du jeu
     check
   end
 
-  def switch(player)			# Methode modifiant la valeur et l'affichage des cases
+  # Methode modifiant la valeur et l'affichage des cases
+  def switch(player)
     unless taken == true
       @mark = player.value
       @board[@player_choice - 1].value = @mark
@@ -51,7 +56,8 @@ class Board						# Classe de la grille du jeu
     end
   end
 
-  def victory(player1, player2) # Methode verifiant s'il y a un gagnant
+  # Methode verifiant s'il y a un gagnant
+  def victory(player1, player2)
     if [@board[0].value, @board[1].value, @board[2].value].all?{ |item| item == "X" } || [@board[3].value, @board[4].value, @board[5].value].all?{ |item| item == "X" } || [@board[6].value, @board[7].value, @board[8].value].all?{ |item| item == "X" } || [@board[6].value, @board[4].value, @board[2].value].all?{ |item| item == "X" } || [@board[0].value, @board[4].value, @board[8].value].all?{ |item| item == "X" } || [@board[2].value, @board[5].value, @board[8].value].all?{ |item| item == "X" } || [@board[1].value, @board[4].value, @board[7].value].all?{ |item| item == "X" } || [@board[0].value, @board[3].value, @board[6].value].all?{ |item| item == "X" }
       puts "#{player1.name} a gagné"
       exit
