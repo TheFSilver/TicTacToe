@@ -60,12 +60,15 @@ class Board
   def victory(player1, player2)
     if [@board[0].value, @board[1].value, @board[2].value].all?{ |item| item == "X" } || [@board[3].value, @board[4].value, @board[5].value].all?{ |item| item == "X" } || [@board[6].value, @board[7].value, @board[8].value].all?{ |item| item == "X" } || [@board[6].value, @board[4].value, @board[2].value].all?{ |item| item == "X" } || [@board[0].value, @board[4].value, @board[8].value].all?{ |item| item == "X" } || [@board[2].value, @board[5].value, @board[8].value].all?{ |item| item == "X" } || [@board[1].value, @board[4].value, @board[7].value].all?{ |item| item == "X" } || [@board[0].value, @board[3].value, @board[6].value].all?{ |item| item == "X" }
       puts "#{player1.name} a gagné"
+      puts grid
       exit
     elsif [@board[0].value, @board[1].value, @board[2].value].all?{ |item| item == "O" } || [@board[3].value, @board[4].value, @board[5].value].all?{ |item| item == "O" } || [@board[6].value, @board[7].value, @board[8].value].all?{ |item| item == "O" } || [@board[6].value, @board[4].value, @board[2].value].all?{ |item| item == "O" } || [@board[0].value, @board[4].value, @board[8].value].all?{ |item| item == "O" } || [@board[2].value, @board[5].value, @board[8].value].all?{ |item| item == "O" } || [@board[1].value, @board[4].value, @board[7].value].uniq == "O" || [@board[0].value, @board[3].value, @board[6].value].all? { |item| item == "O" }
       puts "#{player2.name} a gagné"
+      puts grid
       exit
     elsif @board.all? { |x| x.value.to_s[/\d/].nil? } # Condition du match nul
       puts "Match nul"
+      puts grid
       exit
     end
   end
