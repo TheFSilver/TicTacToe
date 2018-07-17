@@ -1,13 +1,8 @@
-class Player
-  #TO DO : la classe a 2 attr_accessor, son nom, sa valeur (X ou O). Elle a un attr_writer : il a gagné ?
-attr_writer :win
-attr_accessor :name, :value
+class Player					# Classe de joueur
+  attr_accessor :name, :value	# Les variables name et value seront accessibles et modifiables a travers le jeu
 
-
-  def initialize(name, value)
-    @name=name
-    @value=value
-    #@win=win
-    #TO DO : doit régler son nom, sa valeur, son état de victoire
+  def initialize(name, value)	# Chaque joueur se verra attribuer un nom et une valeur à sa creation
+    @name = name
+    @value = value
   end
 end
